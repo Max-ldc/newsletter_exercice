@@ -8,14 +8,14 @@ class Email
      * Creates a new Email instance
      *
      * @param string $email The value to be stored in instance
-     * @throws InvalidArgumentException if email format is not valid
+     * @throws EmailInvalidFormatException if email format is not valid
      */
     public function __construct(string $email)
     {
         $this->email = $email;
 
         if (!$this->isValid()) {
-            throw new InvalidArgumentException("Le format de l'adresse email est invalide");
+            throw new EmailInvalidFormatException("Le format de l'adresse email est invalide");
         }
     }
 

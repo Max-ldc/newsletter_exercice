@@ -2,11 +2,11 @@
 // LAYOUT - HEADER
 $title = "Inscrivez vous à la newsletter";
 require_once 'layout/header.php';
-require_once 'functions.php';
+require_once 'classes/NewsletterError.php';
 
 if (isset($_GET['error'])) { ?>
   <div class="error">
-    Une erreur est survenue : <?php echo getErrorMessage(intval($_GET['error'])); ?>
+    Une erreur est survenue : <?php echo NewslettorError::getErrorMessage(intval($_GET['error'])); ?>
   </div>
 <?php } ?>
 

@@ -15,12 +15,12 @@ class EmailDb
     public function add(Email $email): bool
     {
         if ($this->contains($email)){
-            throw new InvalidArgumentException();
+            throw new DuplicateEmailException();
         }
         
         $spamCheck = new SpamChecker();
         if ($spamCheck->isSpam($email)) {
-            throw new DomainException();
+            throw new SpamEmailException();
         }
 
         $emailsFile = fopen(self::EMAILS_DB_PATH, 'a');
